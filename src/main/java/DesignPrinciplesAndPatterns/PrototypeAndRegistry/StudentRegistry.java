@@ -19,7 +19,7 @@ public class StudentRegistry {
         devopsStudent.setAmountPaid(200);
         devopsStudent.setLengthCourse(9);
 
-        Student softwareStudent = new Student(2020, 1 , "Rahul", 90.0);
+        Student softwareStudent = new Student(2020, 1 , "New Student", 90.0);
         softwareStudent.setCourse("Software");
         softwareStudent.setAmountPaid(600);
         softwareStudent.setLengthCourse(18);
@@ -38,3 +38,4 @@ public class StudentRegistry {
     }
 
 }
+
