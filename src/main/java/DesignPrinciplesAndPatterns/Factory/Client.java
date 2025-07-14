@@ -11,12 +11,12 @@ public class Client {
     public static void main(String[] args) {
         Platform p = new Android();
         // Based on the platform , we want to create new Buttons
-        Button button = null;
-        if(p instanceof Android){
-            button = new AndroidButton();
-        } else if (p instanceof IOS){
-            button = new IOSButton();
-        }
+        Button button = p.createButton();
+//        if(p instanceof Android){
+//            button = new AndroidButton();
+//        } else if (p instanceof IOS){
+//            button = new IOSButton();
+//        }
 
         button.click();
 
@@ -28,5 +28,7 @@ public class Client {
         }
 
         dropdown.showOptions();
+
+        // Option 2 : Move if - else to a dedicated class
     }
 }
