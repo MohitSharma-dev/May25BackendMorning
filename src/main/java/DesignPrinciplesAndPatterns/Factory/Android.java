@@ -5,7 +5,7 @@ import DesignPrinciplesAndPatterns.Factory.components.Button.Button;
 
 public class Android extends Platform{
     @Override
-    public Button createButton() {
-        return new AndroidButton();
+    public UIComponentFactory createUIComponentFactory() {
+        return new AndroidUIComponentFactory();
     }
 }

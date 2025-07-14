@@ -5,7 +5,7 @@ import DesignPrinciplesAndPatterns.Factory.components.Button.IOSButton;
 
 public class IOS extends Platform{
     @Override
-    public Button createButton() {
-        return new IOSButton();
+    public UIComponentFactory createUIComponentFactory() {
+        return new IOSUIComponentFactory();
     }
 }
