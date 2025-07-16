@@ -7,6 +7,8 @@ public class PlatformFactory {
             p = new Android();
         } else if(platformName.equals("iOS")){
             p = new IOS();
+        } else {
+            throw new RuntimeException("Platform Name Not Found");
         }
         return p;
     }

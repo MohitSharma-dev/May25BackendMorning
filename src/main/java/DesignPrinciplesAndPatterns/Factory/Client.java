@@ -42,5 +42,6 @@ public class Client {
         dropdown.showOptions();
 
         // Option 2 : Move if - else to a dedicated class
+
     }
 }
