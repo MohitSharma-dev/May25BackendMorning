@@ -2,9 +2,9 @@ package DesignPrinciplesAndPatterns.SOLID.BirdV5;
 
 public class Sparrow extends Bird implements Flyable {
     FlyingBehaviour flyingBehaviour;
-    Sparrow(FlyingBehaviour flyingBehaviour){
+    Sparrow(FlyingBehaviourType flyingBehaviourType){
 //        this.flyingBehaviour = new LowFlying();
-        this.flyingBehaviour = flyingBehaviour;
+        this.flyingBehaviour = FlyingBehaviourFactory.createFlyingBehaviourByType(flyingBehaviourType);
     }
     @Override
     public void makeSound() {

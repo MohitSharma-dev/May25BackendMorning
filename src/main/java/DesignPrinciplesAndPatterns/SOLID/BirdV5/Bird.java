@@ -5,7 +5,7 @@ public abstract class Bird {
     private int age;
     private int numberOfLegs;
     private String type;
-
+    private FlyingBehaviourType flyingBehaviourType;
 
     public void swim(){
 
@@ -59,5 +59,13 @@ public abstract class Bird {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public FlyingBehaviourType getFlyingBehaviourType() {
+        return flyingBehaviourType;
+    }
+
+    public void setFlyingBehaviourType(FlyingBehaviourType flyingBehaviourType) {
+        this.flyingBehaviourType = flyingBehaviourType;
     }
 }

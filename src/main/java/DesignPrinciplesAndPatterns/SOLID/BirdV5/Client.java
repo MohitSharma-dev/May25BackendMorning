@@ -15,7 +15,9 @@ public class Client {
         Pegion b1 = new Pegion();
         Flyable f = new Pegion();
 
-        Sparrow sp = new Sparrow(new LowFlying());
+        b.setFlyingBehaviourType(FlyingBehaviourType.LOW);
+
+        Sparrow sp = new Sparrow(FlyingBehaviourType.LOW);
         sp.fly();
         sp.setFlyingBehaviour(new HighFlying());
         sp.fly();
