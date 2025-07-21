@@ -24,8 +24,17 @@ public class WeatherData implements Subject {
 
     @Override
     public void notifyObservers() {
+        System.out.println("Informing everyone about the change");
         for (Observer observer : observers) {
             observer.update(temperature, humidity, pressure);
         }
+    }
+
+    public void setMeasurements(float temperature, float humidity, float pressure) {
+        this.temperature = temperature;
+        this.humidity = humidity;
+        this.pressure = pressure;
+        System.out.println("Weather Data has changed!");
+        notifyObservers();
     }
 }

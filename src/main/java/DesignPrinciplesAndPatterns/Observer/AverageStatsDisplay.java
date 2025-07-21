@@ -4,6 +4,19 @@ public class AverageStatsDisplay implements Observer, Display {
     private float temperature;
     private float humidity;
     private float pressure;
+    private Subject subject;
+
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void registerWithSubject(){
+        subject.registerObserver(this);
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
+    }
 
     @Override
     public void update(float temp, float humidity, float pressure) {
