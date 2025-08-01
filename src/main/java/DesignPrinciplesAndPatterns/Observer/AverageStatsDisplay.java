@@ -14,6 +14,10 @@ public class AverageStatsDisplay implements Observer, Display {
         subject.registerObserver(this);
     }
 
+    public void registerWithSubject(Subject subject){
+        subject.registerObserver(this);
+    }
+
     public void setSubject(Subject subject) {
         this.subject = subject;
     }
@@ -31,3 +35,4 @@ public class AverageStatsDisplay implements Observer, Display {
         System.out.println("Average data : " + temperature + "\t" + humidity + "\t" + pressure);
     }
 }
+
