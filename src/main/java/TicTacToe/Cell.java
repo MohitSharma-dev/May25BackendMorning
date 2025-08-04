@@ -5,4 +5,5 @@ public class Cell {
     private int col;
     private CellState cellState;
     private Player player;
+
 }
