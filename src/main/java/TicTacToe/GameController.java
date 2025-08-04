@@ -26,14 +26,20 @@ public class GameController {
 
     public void display(Game game){
         // TODO
+        game.display();
     }
 
     public void makeMove(Game game){
-        // TODO
+        // TODO : Homework
+            // It should take the input of the move
+            // validate
+            // update the board
+            // check winner and update state if required
     }
 
     public String getWinner(Game game){
         // TODO
+        return game.getWinner().getName();
     }
 
     private int getDimension(){
@@ -47,10 +53,15 @@ public class GameController {
         // Modify this function to take Bot as well
         List<Player> players = new ArrayList<>();
         for(int i = 0; i < dimension - 1; i++){
-            System.out.println("Add Player details : Name Symbol");
-            String details = scanner.nextLine();
-            String[] detailsArray = details.split(" ");
-            Player player = new Human(i , detailsArray[0], PlayerType.HUMAN , new Symbol(detailsArray[1]));
+            System.out.print("Add Player details : Name Symbol");
+            System.out.println("Please enter the name : ");
+            String name = scanner.next();
+            System.out.println("Please enter the symbol : ");
+            String symbol = scanner.next();
+//            String details = scanner.nextLine();
+//            System.out.println(details);
+//            String[] detailsArray = details.split(" ");
+            Player player = new Human(i , name, PlayerType.HUMAN , new Symbol(symbol));
         }
         return players;
     }

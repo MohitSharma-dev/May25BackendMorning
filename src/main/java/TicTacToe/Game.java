@@ -24,6 +24,10 @@ public class Game {
         this.winner = null;
     }
 
+    public void display(){
+        board.display();
+    }
+
     public Board getBoard() {
         return board;
     }

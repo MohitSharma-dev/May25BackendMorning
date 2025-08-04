@@ -9,3 +9,5 @@ public class RowWinningStrategy implements WinningStrategy {
         return false;
     }
 }
+
+// maintain a hashmap
