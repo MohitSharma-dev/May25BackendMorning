@@ -44,4 +44,12 @@ public abstract class Player {
     public void setSymbol(Symbol symbol) {
         this.symbol = symbol;
     }
+
+    public Move makeMove(Board board, int row, int col) {
+        Cell cell = board.getCell(row, col);
+        cell.setPlayer(this);
+        cell.setCellState(CellState.FILLED);
+        Move move = new Move(cell, this);
+        return move;
+    }
 }

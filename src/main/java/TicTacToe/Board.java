@@ -27,4 +27,12 @@ public class Board {
             System.out.println();
         }
     }
+
+    public Cell getCell(int row, int col) {
+        return this.grid.get(row).get(col);
+    }
+
+    public CellState getCellState(int row, int col) {
+        return this.grid.get(row).get(col).getCellState();
+    }
 }
