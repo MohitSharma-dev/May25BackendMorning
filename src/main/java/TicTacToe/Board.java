@@ -27,4 +27,24 @@ public class Board {
             System.out.println();
         }
     }
+
+    public List<List<Cell>> getGrid() {
+        return grid;
+    }
+
+    public void setGrid(List<List<Cell>> grid) {
+        this.grid = grid;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public Cell getCell(int row , int col){
+        return grid.get(row).get(col);
+    }
 }

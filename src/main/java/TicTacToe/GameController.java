@@ -31,6 +31,7 @@ public class GameController {
 
     public void makeMove(Game game){
         // TODO : Homework
+        game.makeMove();
             // It should take the input of the move
             // validate
             // update the board
@@ -62,6 +63,7 @@ public class GameController {
 //            System.out.println(details);
 //            String[] detailsArray = details.split(" ");
             Player player = new Human(i , name, PlayerType.HUMAN , new Symbol(symbol));
+            players.add(player);
         }
         return players;
     }
@@ -70,7 +72,7 @@ public class GameController {
 
 
 // gameController -> game.display() -> board.display() -> cell.display()
-
+//
 //|-||-||-|
 //|-||-||X|
 //| | | |

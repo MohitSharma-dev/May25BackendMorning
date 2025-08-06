@@ -6,7 +6,7 @@ public class Cell {
     private CellState cellState;
     private Player player;
 
-    public Cell(int col, int row) {
+    public Cell(int row, int col) {
         this.col = col;
         this.row = row;
         this.cellState = CellState.EMPTY;
@@ -19,5 +19,37 @@ public class Cell {
         } else if(cellState == CellState.FILLED){
             System.out.print("| " + player.getSymbol().getSym() + " |");
         }
+    }
+
+    public CellState getCellState() {
+        return cellState;
+    }
+
+    public void setCellState(CellState cellState) {
+        this.cellState = cellState;
+    }
+
+    public int getCol() {
+        return col;
+    }
+
+    public void setCol(int col) {
+        this.col = col;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
     }
 }

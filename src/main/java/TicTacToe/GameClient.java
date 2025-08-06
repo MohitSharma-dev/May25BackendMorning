@@ -13,9 +13,9 @@ public class GameClient {
             // select the winning strategies
         // 2. We need to create Game object : start the game
         Game game = gameController.startGame();
-        gameController.display(game);
+//        gameController.display(game);
         // 3. Keep on playing the game until the game is in IN_PROGRESS state
-        while(gameController.getGameState(game).equals(GameState.NOT_STARTED)){
+        while(gameController.getGameState(game).equals(GameState.IN_PROGRESS)){
 
             // 3.1 display the board
             gameController.display(game);
@@ -33,3 +33,25 @@ public class GameClient {
 
     }
 }
+
+// Setup the flow of the game
+// Implemented display
+
+// Implementing the MakeMove
+
+// HUMAN
+    // Input from the player
+    // Validate the input
+
+
+
+// BOT
+    // Some algorithm will suggest the move
+
+
+// update the board : Mark the cell with the symbol + state
+// update the turn
+// add moves in the list of moves
+// check winner/draw using all the selected strategies
+// assign the winner
+// change the state of the game
