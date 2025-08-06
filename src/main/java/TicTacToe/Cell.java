@@ -7,10 +7,8 @@ public class Cell {
     private Player player;
 
     public Cell(int row, int col) {
-        // Swap row and col position, earlier it was opposite causing an error because we were creating cell = new Cell(i, j)
-        // so Cell was stroing row and col value in wrong order.
-        this.row = row;
         this.col = col;
+        this.row = row;
         this.cellState = CellState.EMPTY;
         this.player = null;
     }
@@ -23,12 +21,12 @@ public class Cell {
         }
     }
 
-    public int getRow() {
-        return row;
+    public CellState getCellState() {
+        return cellState;
     }
 
-    public void setRow(int row) {
-        this.row = row;
+    public void setCellState(CellState cellState) {
+        this.cellState = cellState;
     }
 
     public int getCol() {
@@ -39,19 +37,19 @@ public class Cell {
         this.col = col;
     }
 
-    public CellState getCellState() {
-        return cellState;
-    }
-
-    public void setCellState(CellState cellState) {
-        this.cellState = cellState;
-    }
-
     public Player getPlayer() {
         return player;
     }
 
     public void setPlayer(Player player) {
         this.player = player;
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
     }
 }
