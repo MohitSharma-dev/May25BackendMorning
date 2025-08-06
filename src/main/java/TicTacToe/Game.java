@@ -19,7 +19,7 @@ public class Game {
         this.players = players;
         this.winningStrategies = winningStrategies;
         this.gameState = GameState.IN_PROGRESS;
-        this.nextPlayerIndex = 0;
+        this.nextPlayerIndex = 1;
         this.moves = new ArrayList<>();
         this.winner = null;
     }
@@ -151,5 +151,42 @@ public class Game {
 
     public void setWinningStrategies(List<WinningStrategy> winningStrategies) {
         this.winningStrategies = winningStrategies;
+    }
+
+    public Move makeMove(int row, int col) {
+        System.out.println("Inside game.makeMove function, creating new move");
+        int playerIndex = (nextPlayerIndex-1+players.size())%players.size();
+        Move move = players.get(playerIndex).makeMove(board, row, col);
+        System.out.println("Move made");
+        moves.add(move);
+        checkWinner(move);
+        nextPlayerIndex = (nextPlayerIndex + 1) % players.size();
+        return move;
+    }
+
+    public boolean validateMove(int row, int col) {
+        CellState cellState = board.getCellState(row, col);
+        System.out.println("In validateMove fucntion: cellState=" + cellState);
+        if(cellState.equals(CellState.EMPTY)) return true;
+        return false;
+    }
+
+    public void updateBoard(Move move) {
+
+    }
+
+    public void checkWinner(Move move) {
+        boolean flag = false;
+        for(WinningStrategy winningStrategy : winningStrategies){
+            if(winningStrategy.checkWinner(board, move)) {
+                flag = true;
+                break;
+            }
+        }
+
+        if(flag){
+            winner = move.getPlayer();
+            gameState = GameState.SUCCESS;
+        }
     }
 }

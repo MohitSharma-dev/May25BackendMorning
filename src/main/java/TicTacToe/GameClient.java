@@ -13,6 +13,7 @@ public class GameClient {
             // select the winning strategies
         // 2. We need to create Game object : start the game
         Game game = gameController.startGame();
+
 //        gameController.display(game);
         // 3. Keep on playing the game until the game is in IN_PROGRESS state
         while(gameController.getGameState(game).equals(GameState.IN_PROGRESS)){

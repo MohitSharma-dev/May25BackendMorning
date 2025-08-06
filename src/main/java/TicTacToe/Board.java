@@ -27,7 +27,7 @@ public class Board {
             System.out.println();
         }
     }
-
+  
     public List<List<Cell>> getGrid() {
         return grid;
     }
