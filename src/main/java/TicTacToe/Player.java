@@ -43,6 +43,10 @@ public abstract class Player {
         return symbol;
     }
 
+    public String getCharacter() {
+        return getSymbol().getSym();
+    }
+
     public void setSymbol(Symbol symbol) {
         this.symbol = symbol;
     }
