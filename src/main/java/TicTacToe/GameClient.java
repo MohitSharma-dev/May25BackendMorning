@@ -1,6 +1,9 @@
 package TicTacToe;
 
+import java.util.Scanner;
+
 public class GameClient {
+    public static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
         System.out.println("We will play the game here!");
         // Implement Singleton pattern
@@ -13,14 +16,23 @@ public class GameClient {
             // select the winning strategies
         // 2. We need to create Game object : start the game
         Game game = gameController.startGame();
-//        gameController.display(game);
+        gameController.display(game);
         // 3. Keep on playing the game until the game is in IN_PROGRESS state
         while(gameController.getGameState(game).equals(GameState.IN_PROGRESS)){
 
             // 3.1 display the board
-            gameController.display(game);
+
             // 3.2 makeMove : we will also check the winner and update the state if required
             gameController.makeMove(game);
+            gameController.display(game);
+
+            System.out.println("Does anyone want to undo the last move ? [Y?N]");
+            String input = scanner.nextLine();
+            if(input.equals("Y")){
+                gameController.undo(game);
+                System.out.println("Undo completed!");
+                gameController.display(game);
+            }
         }
         // 4. Check the winner / Draw and announce the result
 
@@ -55,3 +67,9 @@ public class GameClient {
 // check winner/draw using all the selected strategies
 // assign the winner
 // change the state of the game
+
+
+
+// Requirements
+// Class diagram
+// Code

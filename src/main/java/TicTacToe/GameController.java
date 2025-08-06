@@ -1,5 +1,6 @@
 package TicTacToe;
 
+import TicTacToe.strategies.RowWinningStrategy;
 import TicTacToe.strategies.WinningStrategy;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class GameController {
         List<Player> players = getPlayers(dimension);
         // ask for winning strategies : TODO!!
         List<WinningStrategy> winningStrategies = new ArrayList<>();
+        winningStrategies.add(new RowWinningStrategy());
         // create the game object
         return new Game(dimension , players , winningStrategies);
     }
@@ -52,8 +54,18 @@ public class GameController {
     private List<Player> getPlayers(int dimension){
         System.out.println("Let's add the players now : ");
         // Modify this function to take Bot as well
+        System.out.println("Do you want a Bot in the game ? [Y/N] ");
+        String input = scanner.next();
         List<Player> players = new ArrayList<>();
-        for(int i = 0; i < dimension - 1; i++){
+
+        int countOfPlayers = dimension - 1;
+
+        if(input.equalsIgnoreCase("Y")){
+            Player player = new Bot(0, "BOTTY", PlayerType.BOT , new Symbol("B"), BotDifficultyLevel.EASY);
+            players.add(player);
+            countOfPlayers--;
+        }
+        for(int i = 0; i < countOfPlayers; i++){
             System.out.print("Add Player details : Name Symbol");
             System.out.println("Please enter the name : ");
             String name = scanner.next();
@@ -66,6 +78,10 @@ public class GameController {
             players.add(player);
         }
         return players;
+    }
+
+    public void undo(Game game){
+        game.undo();
     }
 
 }

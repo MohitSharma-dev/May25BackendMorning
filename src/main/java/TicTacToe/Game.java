@@ -92,6 +92,32 @@ public class Game {
 
     }
 
+    public void undo(){
+        if(moves.size() == 0){
+            System.out.println("Nothing to undo! Let's move the game guys. Be serious");
+            return;
+        }
+
+        Move lastMove = moves.get(moves.size()-1);
+
+        Cell cell = lastMove.getCell();
+        cell.setPlayer(null);
+        cell.setCellState(CellState.EMPTY);
+
+        nextPlayerIndex--;
+        nextPlayerIndex = (nextPlayerIndex +  players.size()) % players.size();
+
+        moves.remove(lastMove);
+
+        // update the strategy
+        for (WinningStrategy strategy : winningStrategies) {
+            strategy.handleUndo(board,lastMove);
+        }
+
+        setWinner(null);
+        setGameState(GameState.IN_PROGRESS);
+
+    }
 
     public void display(){
         board.display();
