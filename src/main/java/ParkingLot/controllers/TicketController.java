@@ -16,8 +16,15 @@ public class TicketController {
     public IssueTicketResponse issueTicket(IssueTicketRequest request) {
         IssueTicketResponse response = new IssueTicketResponse();
         try {
-           Ticket ticket = ticketService.issueTicket();
+           Ticket ticket = ticketService.issueTicket(
+                   request.getGateId(),
+                   request.getLicensePlateNumber(),
+                   request.getOwnerName(),
+                   request.getVehicleType(),
+                   request.getParkingLotId()
+           );
            response.setTicketId(ticket.getId());
+           response.setSlotNumber(ticket.getParkingSlot().getParkingSlotNumber());
            response.setResponseStatus(ResponseStatus.SUCCESS);
         } catch (Exception ex){
             response.setResponseStatus(ResponseStatus.FAILURE);
@@ -30,3 +37,12 @@ public class TicketController {
 // DTO : Data transfer object
 
 // HW : Think about the business logic
+
+// Client (User) -> call to your Backend
+// API will be called
+// GET , POST , PUT , PATCH , DELETE
+// POST /ticket {} : TicketController
+// Request will go to configured Controller
+// Controller might want to run some validations on the request data
+// Controller will call the service
+// Service has the business logic

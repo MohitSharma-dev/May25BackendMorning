@@ -1,17 +1,27 @@
 package ParkingLot.models;
 
 import java.util.List;
+import java.util.Set;
 
 public class ParkingSlot extends BaseModel{
     private String parkingSlotNumber;
     private ParkingSlotStatus parkingSlotStatus;
-    private List<VehicleType> allowedVehicleTypes;
+    private Set<VehicleType> allowedVehicleTypes;
+    private ParkingFloor parkingFloor;
 
-    public List<VehicleType> getAllowedVehicleTypes() {
+    public ParkingFloor getParkingFloor() {
+        return parkingFloor;
+    }
+
+    public void setParkingFloor(ParkingFloor parkingFloor) {
+        this.parkingFloor = parkingFloor;
+    }
+
+    public Set<VehicleType> getAllowedVehicleTypes() {
         return allowedVehicleTypes;
     }
 
-    public void setAllowedVehicleTypes(List<VehicleType> allowedVehicleTypes) {
+    public void setAllowedVehicleTypes(Set<VehicleType> allowedVehicleTypes) {
         this.allowedVehicleTypes = allowedVehicleTypes;
     }
 

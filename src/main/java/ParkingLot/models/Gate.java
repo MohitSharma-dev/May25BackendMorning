@@ -6,7 +6,6 @@ public class Gate extends BaseModel {
     private GateStatus gateStatus;
     private Operator currentOperator;
 
-
     public Operator getCurrentOperator() {
         return currentOperator;
     }
